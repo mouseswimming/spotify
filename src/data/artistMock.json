@@ -1,0 +1,57 @@
+{
+  "name": "Echoes of Eternity",
+  "albumCover": "https://picsum.photos/id/139/300/300",
+  "releaseYear": "2022",
+  "tracks": [
+    {
+      "id": 1,
+      "name": "Infinite Horizons",
+      "path": "/songs/1.mp3"
+    },
+    {
+      "id": 2,
+      "name": "Celestial Dreams",
+      "path": "/songs/2.mp3"
+    },
+    {
+      "id": 3,
+      "name": "Timeless Melodies",
+      "path": "/songs/3.mp3"
+    },
+    {
+      "id": 4,
+      "name": "Serenity's Embrace",
+      "path": "/songs/4.mp3"
+    },
+    {
+      "id": 5,
+      "name": "Harmony of Stars",
+      "path": "/songs/5.mp3"
+    },
+    {
+      "id": 6,
+      "name": "Eternal Echoes",
+      "path": "/songs/6.mp3"
+    },
+    {
+      "id": 7,
+      "name": "Astral Whispers",
+      "path": "/songs/7.mp3"
+    },
+    {
+      "id": 8,
+      "name": "Galactic Odyssey",
+      "path": "/songs/8.mp3"
+    },
+    {
+      "id": 9,
+      "name": "Cosmic Reverie",
+      "path": "/songs/9.mp3"
+    },
+    {
+      "id": 10,
+      "name": "Beyond Infinity",
+      "path": "/songs/10.mp3"
+    }
+  ]
+}

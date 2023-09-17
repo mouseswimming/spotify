@@ -1,0 +1,109 @@
+{
+  "collections": [
+    {
+      "title": "Recently played",
+      "tracks": [
+        {
+          "cover": "https://picsum.photos/id/30/300/300",
+          "title": "Lofi Vibes",
+          "description": "Relax and unwind with a collection of chill beats and soothing melodies."
+        },
+        {
+          "cover": "https://picsum.photos/id/45/300/300",
+          "title": "Indie Dreamscape",
+          "description": "Immerse yourself in the dreamy world of indie music."
+        },
+        {
+          "cover": "https://picsum.photos/id/63/300/300",
+          "title": "Electro Groove Revolution",
+          "description": "Dive into the future of electronic music."
+        },
+        {
+          "cover": "https://picsum.photos/id/74/300/300",
+          "title": "Jazz Café Classics",
+          "description": "Step into a cozy jazz café and let the smooth sounds of saxophones and pianos transport you to another era. "
+        },
+        {
+          "cover": "https://picsum.photos/id/99/300/300",
+          "title": "Acoustic Serenity",
+          "description": "Experience the pure beauty of acoustic music."
+        }
+      ]
+    },
+    {
+      "title": "Made for Vivian",
+      "tracks": [
+        {
+          "cover": "https://picsum.photos/id/90/300/300",
+          "title": "Soulful Serenades",
+          "description": "Immerse yourself in the soulful melodies of legendary artists. Let the smooth rhythms and heartfelt lyrics take you on a journey through the heart and soul of music."
+        },
+        {
+          "cover": "https://picsum.photos/id/15/300/300",
+          "title": "Electronic Escapade",
+          "description": "Embark on an electronic adventure with the latest beats and synthwave sounds. Get ready to dance the night away to pulsating rhythms and futuristic vibes."
+        }
+      ]
+    },
+    {
+      "title": "Today's Biggest Hits",
+      "tracks": [
+        {
+          "cover": "https://picsum.photos/id/20/300/300",
+          "title": "Pop Sensations",
+          "description": "Experience the latest chart-topping pop hits from your favorite artists. Dance, sing, and vibe to the catchiest tunes of the moment."
+        },
+        {
+          "cover": "https://picsum.photos/id/33/300/300",
+          "title": "Rock Anthems",
+          "description": "Get ready to rock out with the biggest rock anthems of today. From powerful guitar riffs to electrifying solos, this album has it all."
+        },
+        {
+          "cover": "https://picsum.photos/id/57/300/300",
+          "title": "R&B Grooves",
+          "description": "Indulge in the smooth and soulful R&B grooves that are dominating the airwaves. Let the passion and rhythm guide your day."
+        },
+        {
+          "cover": "https://picsum.photos/id/89/300/300",
+          "title": "EDM Extravaganza",
+          "description": "Join the electronic dance music revolution with this high-energy album. It's a non-stop party featuring the hottest EDM tracks of the moment."
+        },
+        {
+          "cover": "https://picsum.photos/id/36/300/300",
+          "title": "Country Hits Showcase",
+          "description": "Saddle up for a journey through the best of today's country music. From heartfelt ballads to upbeat country rock, this album has it all."
+        }
+      ]
+    },
+    {
+      "title": "Great First Audiobooks",
+      "tracks": [
+        {
+          "cover": "https://picsum.photos/id/35/300/300",
+          "title": "The Hitchhiker's Guide to the Galaxy",
+          "description": "Embark on a hilarious intergalactic adventure with this classic science fiction comedy by Douglas Adams."
+        },
+        {
+          "cover": "https://picsum.photos/id/42/300/300",
+          "title": "To Kill a Mockingbird",
+          "description": "Explore the deep South and the themes of racism and morality in Harper Lee's timeless classic."
+        },
+        {
+          "cover": "https://picsum.photos/id/49/300/300",
+          "title": "The Alchemist",
+          "description": "Discover the journey of self-discovery and destiny in Paulo Coelho's philosophical novel."
+        },
+        {
+          "cover": "https://picsum.photos/id/56/300/300",
+          "title": "1984",
+          "description": "Dive into George Orwell's dystopian masterpiece that explores the dangers of totalitarianism and thought control."
+        },
+        {
+          "cover": "https://picsum.photos/id/69/300/300",
+          "title": "The Harry Potter Series",
+          "description": "Enter the magical world of Hogwarts and follow the epic adventures of Harry Potter in J.K. Rowling's beloved series."
+        }
+      ]
+    }
+  ]
+}
