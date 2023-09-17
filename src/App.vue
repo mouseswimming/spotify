@@ -15,7 +15,7 @@ const { isPlaying, currentTrack } = storeToRefs(useSong);
     <main>
       <TopNav />
       <section
-        class="overflow-auto bg-gradient-to-b from-[#1C1C1C] to-[#121212] mt-2 rounded-md"
+        class="overflow-auto bg-gradient-to-b from-[#1C1C1C] to-[#121212] mt-2 rounded-md view-container"
       >
         <div class="m-8">
           <RouterView />
@@ -47,5 +47,28 @@ main {
   display: grid;
   grid-template-rows: auto 1fr;
   overflow: auto;
+}
+
+.view-container {
+  margin-right: 5px;
+}
+
+@media (hover: hover) {
+  .view-container::-webkit-scrollbar {
+    background-color: transparent;
+    width: 8px;
+  }
+
+  .view-container:hover {
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
 }
 </style>
