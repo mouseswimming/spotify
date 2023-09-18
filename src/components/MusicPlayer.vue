@@ -8,18 +8,16 @@ import SkipForward from "icons/SkipForward.vue";
 import VolumeMute from "icons/VolumeMute.vue";
 import VolumeHigh from "icons/VolumeHigh.vue";
 
+import ProgressBar from "./ProgressBar.vue";
+
 import { useSongStore } from "../stores/songStore";
 import { storeToRefs } from "pinia";
 
 const useSong = useSongStore();
 const { isPlaying, audio, currentArtist, currentTrack } = storeToRefs(useSong);
 
-const isTrackProgressHover = ref(false);
-const isVolumnHover = ref(false);
 const isTrackTimeCurrent = ref(null);
 const isTrackTimeTotal = ref(null);
-const seeker = ref(null);
-const seekerContainer = ref(null);
 const range = ref(0);
 
 const vol = ref(80);
@@ -34,7 +32,6 @@ const timeupdate = () => {
     // on the range slide, the per
     const value = (100 / audio.value.duration) * audio.value.currentTime;
     range.value = value;
-    // seeker.value.value = value;
   });
 };
 
@@ -67,41 +64,25 @@ watch(isTrackTimeCurrent, (time) => {
   }
 });
 
-onMounted(() => {
-  // when there is a selected track
-  if (currentTrack.value) {
-    // update audio current time when user drag seeker
-    seeker.value.addEventListener("change", () => {
-      const time = audio.value.duration * (seeker.value.value / 100);
-      audio.value.currentTime = time;
-    });
-
-    // update audio current time when user click on seeker
-    seekerContainer.value.addEventListener("click", (e) => {
-      const clickPosition =
-        (e.pageX - seekerContainer.value.offsetLeft) /
-        seekerContainer.value.offsetWidth;
-      const time = audio.value.duration * clickPosition;
-      audio.value.currentTime = time;
-      seeker.value.value =
-        (100 / audio.value.duration) * audio.value.currentTime;
-    });
-
-    seeker.value.addEventListener("mousedown", () => {
-      audio.value.pause();
-      isPlaying.value = false;
-    });
-
-    seeker.value.addEventListener("mouseup", () => {
-      audio.value.play();
-      isPlaying.value = true;
-    });
-
-    volume.value.addEventListener("input", (e) => {
-      audio.value.volume = e.currentTarget.value / 100;
-    });
-  }
+watch(vol, () => {
+  audio.value.volume = vol.value / 100;
 });
+
+const jumpToSeekPosition = (position) => {
+  const time = audio.value.duration * position;
+  audio.value.currentTime = time;
+  range.value = (100 / audio.value.duration) * audio.value.currentTime;
+};
+
+const seekStart = () => {
+  audio.value.pause();
+  isPlaying.value = false;
+};
+
+const seekEnd = () => {
+  audio.value.play();
+  isPlaying.value = true;
+};
 </script>
 
 <template>
@@ -157,67 +138,31 @@ onMounted(() => {
       </div>
       <!-- seeker -->
       <div class="flex items-center gap-x-2 h-[30px]">
-        <div
-          v-if="isTrackTimeCurrent"
-          class="text-white text-[12px] pr-2 pt-[11px]"
-        >
+        <div v-if="isTrackTimeCurrent" class="text-white text-[12px] pr-2">
           {{ isTrackTimeCurrent }}
         </div>
-        <div
-          ref="seekerContainer"
-          class="w-full relative mt-2 mb-3"
-          @mouseenter="isTrackProgressHover = true"
-          @mouseleave="isTrackProgressHover = false"
-        >
-          <input
-            v-model="range"
-            type="range"
-            class="w-full absolute h-0 z-40 appearance-none focus:outline-none mt-2 accent-white"
-            ref="seeker"
-            :class="{ rangeDotHidden: !isTrackProgressHover }"
-          />
-          <div
-            class="pointer-events-none mt-[6px] absolute h-[4px] z-10 inset-y-0 left-0 w-0"
-            :style="`width: ${range}%;`"
-            :class="isTrackProgressHover ? 'bg-green-500' : 'bg-white'"
-          />
-          <div
-            class="absolute h-[4px] z-[-0] mt-[6px] inset-y-0 left-0 w-full bg-gray-500 rounded-full"
-          />
-        </div>
-        <div
-          v-if="isTrackTimeTotal"
-          class="text-white text-[12px] pl-2 pt-[11px]"
-        >
+        <ProgressBar
+          :progressValue="range"
+          @update:progressValue="(newValue) => (range = newValue)"
+          @seek="jumpToSeekPosition"
+          @dragStart="seekStart"
+          @dragEnd="seekEnd"
+          class="w-full relative mb-4"
+        />
+        <div v-if="isTrackTimeTotal" class="text-white text-[12px] pl-2">
           {{ isTrackTimeTotal }}
         </div>
       </div>
     </div>
     <!-- volumn controller -->
-    <div class="w-1/4 flex items-center justify-end pr-2">
+    <div class="w-1/4 flex items-center justify-end pr-2 gap-x-2">
       <VolumeMute v-if="vol == 0" fillColor="#FFFFFF" :size="20" />
       <VolumeHigh v-else fillColor="#FFFFFF" :size="20" />
-      <div
-        class="flex items-center ml-2 w-[150px] relative mt-2 mb-[23px]"
-        @mouseenter="isVolumnHover = true"
-        @mouseleave="isVolumnHover = false"
-      >
-        <input
-          v-model="vol"
-          ref="volume"
-          type="range"
-          class="mt-[24px] absolute rounded-full my-2 w-full h-0 z-40 appearance-none bg-opacity-100 focus:outline-none accent-white"
-          :class="{ rangeDotHidden: !isVolumnHover }"
-        />
-        <div
-          class="pointer-events-none mt-[6px] absolute h-[4px] z-10 inset-y-0 left-0 w-0"
-          :style="`width: ${vol}%;`"
-          :class="isVolumnHover ? 'bg-green-500' : 'bg-white'"
-        />
-        <div
-          class="absolute h-[4px] z-[-0] mt-[6px] inset-y-0 left-0 w-full bg-gray-500 rounded-full"
-        />
-      </div>
+      <ProgressBar
+        :progressValue="vol"
+        @update:progressValue="(newValue) => (vol = newValue)"
+        class="w-[150px] relative mb-4"
+      />
     </div>
   </div>
 </template>

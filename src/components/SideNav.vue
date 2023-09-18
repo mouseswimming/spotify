@@ -27,28 +27,12 @@ import MenuItem from "./MenuItem.vue";
           <Bookshelf :size="24" />
         </MenuItem>
       </RouterLink>
-      <ul class="border-t border-t-gray-700 mt-2 pt-1">
-        <li
-          class="font-semibold text-[13px] mt-3 text-gray-300 hover:text-white"
-        >
-          My Playlist #1
-        </li>
-        <li
-          class="font-semibold text-[13px] mt-3 text-gray-300 hover:text-white"
-        >
-          My Playlist #2
-        </li>
-        <li
-          class="font-semibold text-[13px] mt-3 text-gray-300 hover:text-white"
-        >
-          My Playlist #3
-        </li>
-        <li
-          class="font-semibold text-[13px] mt-3 text-gray-300 hover:text-white"
-        >
-          My Playlist #4
-        </li>
-      </ul>
+      <div class="border-t border-t-gray-700 mt-2 pt-1">
+        <RouterLink to="/library">
+          <MenuItem class="ml-[1px]" name="My playlist 1" pageUrl="/library">
+          </MenuItem>
+        </RouterLink>
+      </div>
     </div>
   </div>
 </template>

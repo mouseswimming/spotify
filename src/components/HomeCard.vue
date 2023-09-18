@@ -11,7 +11,7 @@ const { image, title, description } = toRefs(props);
 </script>
 
 <template>
-  <RouterLink to="/">
+  <RouterLink to="/library">
     <div class="bg-[#111111] p-4 rounded-md hover:bg-[#252525] cursor-pointer">
       <img class="rounded-md" :src="image" alt="" />
       <div class="text-white mt-4 line-clamp-1 font-semibold text-[17px]">

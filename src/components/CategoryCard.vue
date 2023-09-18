@@ -12,7 +12,7 @@ const randomColor = ref(uniqolor.random());
 </script>
 
 <template>
-  <RouterLink to="/">
+  <RouterLink to="/library">
     <div
       v-if="randomColor.color"
       :style="`background-color: ${randomColor.color};`"
